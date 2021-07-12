@@ -12,14 +12,20 @@ Things you may want to cover:
 * Configuration
 
 * Database creation
-
+  `rake db:setup`
 * Database initialization
 
 * How to run the test suite
 
+`rspec`
+
 * Services (job queues, cache servers, search engines, etc.)
 
 * Deployment instructions
+  
+  `heroku container:push web`
+  
+  `heroku container:release web`
 
 * ...
 
