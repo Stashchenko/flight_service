@@ -1,0 +1,159 @@
+---
+swagger: '2.0'
+info:
+  title: API V1
+  version: v1
+paths:
+  "/flights":
+    get:
+      summary: Fetch all flights
+      tags:
+      - Flights
+      description: Get all flights
+      produces:
+      - application/json
+      consumes:
+      - application/json
+      responses:
+        '200':
+          description: Success
+          schema:
+            type: object
+            properties:
+              data:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    type: flight
+                    id:
+                      type: integer
+                      example: 1
+                    airline:
+                      type: string
+                      example: 2B
+                    source_airport:
+                      type: string
+                      example: AER
+                    destination_airport:
+                      type: string
+                      example: KZN
+                    code_share:
+                      type: string
+                      example: W13
+                    stops:
+                      type: integer
+                      example: 0
+                    equipment:
+                      type: string
+                      example: Q1
+                    provider_name:
+                      type: string
+                      example: booking
+                    created_at:
+                      type: date
+                      example: '2021-07-12T22:26:08.828Z'
+                    updated_at:
+                      type: date
+                      example: '2021-07-12T22:26:08.828Z'
+                  required:
+                  - airline
+                  - source_airport
+                  - destination_airport
+                  - stops
+                  - equipment
+                  - provider
+              meta:
+                type: object
+                properties:
+                  total_pages:
+                    type: integer
+                    example: 1
+    post:
+      summary: Create a new flight
+      tags:
+      - Flights
+      description: Create a new flight
+      produces:
+      - application/json
+      consumes:
+      - application/json
+      parameters:
+      - name: flight
+        in: body
+        schema:
+          type: object
+          properties:
+            airline:
+              type: string
+              example: 2B
+            source_airport:
+              type: string
+              example: AER
+            destination_airport:
+              type: string
+              example: KZN
+            code_share:
+              type: string
+              example: W13
+            stops:
+              type: integer
+              example: 0
+            equipment:
+              type: string
+              example: Q1
+            provider_id:
+              type: integer
+              example: '1'
+          required:
+          - airline
+          - source_airport
+          - destination_airport
+          - stops
+          - equipment
+          - provider_id
+      responses:
+        '201':
+          description: flight created
+          schema:
+            type: object
+            properties:
+              id:
+                type: integer
+                example: 1
+              airline:
+                type: string
+                example: 2B
+              source_airport:
+                type: string
+                example: AER
+              destination_airport:
+                type: string
+                example: KZN
+              code_share:
+                type: string
+                example: W13
+              stops:
+                type: integer
+                example: 0
+              equipment:
+                type: string
+                example: Q1
+              provider_name:
+                type: string
+                example: booking
+              created_at:
+                type: date
+                example: '2021-07-12T22:26:08.828Z'
+              updated_at:
+                type: date
+                example: '2021-07-12T22:26:08.828Z'
+            required:
+            - airline
+            - source_airport
+            - destination_airport
+            - stops
+            - equipment
+            - provider
+        '422':
+          description: invalid request
