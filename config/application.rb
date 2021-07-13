@@ -41,6 +41,5 @@ module FlightService
     config.hosts = nil
     config.autoload_paths << 'lib'
     config.autoload_paths += ["#{config.root}/app/queries/"]
-
   end
 end

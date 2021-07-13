@@ -1,5 +1,8 @@
 require: rubocop-rails
 
+AllCops:
+  SuggestExtensions: false
+
 Style/Documentation:
   Enabled: false
 
@@ -8,3 +11,12 @@ Metrics/BlockLength:
     - 'Rakefile'
     - '**/*.rake'
     - 'spec/**/*.rb'
+    -
+Rails/SkipsModelValidations:
+  Exclude:
+    - 'lib/providers/*.rb'
+Rails/UniqueValidationWithoutIndex:
+  Exclude:
+    - 'app/models/*.rb'
+Metrics/MethodLength:
+  Max: 20

@@ -3,6 +3,7 @@
 module Providers
   class Provider2 < Base
     NAME = 'provider2'
+    # TODO: should get from conf env, + encrypted
     ENDPOINT = 'http://ec2-54-246-224-31.eu-west-1.compute.amazonaws.com:8000/provider/flights2'
 
     def sync_data

@@ -5,10 +5,13 @@ application up and running.
 
 Things you may want to cover:
 
+[![Ruby](https://github.com/Stashchenko/flight_service/actions/workflows/ruby.yml/badge.svg)](https://github.com/Stashchenko/flight_service/actions/workflows/ruby.yml)
+
 * Ruby version
-
+3.0
 * System dependencies
-
+  https://jsonapi.org/format/
+  
 * Configuration
 
 * Database creation
@@ -34,6 +37,6 @@ Things you may want to cover:
 
 `rake rswag:specs:swaggerize`
   
+`heroku run rails flight_routes:sync` ti sync manually in prod
 
 
-https://jsonapi.org/format/
