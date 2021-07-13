@@ -17,14 +17,13 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  host: <%= ENV['POSTGRES_HOST'] || 'localhost' %>
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 
 development:
   <<: *default
   host: <%= ENV['POSTGRES_HOST'] || 'localhost' %>
-  username: volodymyr_stashchenk
+  username: <%= ENV['POSTGRES_USERNAME'] || 'volodymyr_stashchenk' %>
   password: <%= ENV['POSTGRES_PASSWORD'] %>
   database: funwithflights_development
 
@@ -62,7 +61,7 @@ test:
   <<: *default
   host: <%= ENV['POSTGRES_HOST'] || 'localhost' %>
   username: postgres
-  password: <%= ENV['POSTGRES_PASSWORD'] %>
+  password: <%= ENV['POSTGRES_PASSWORD'] || 'postgres' %>
   database: funwithflights_test
 
 # As with config/credentials.yml, you never want to store sensitive information,

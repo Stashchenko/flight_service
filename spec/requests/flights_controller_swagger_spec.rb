@@ -86,11 +86,11 @@ RSpec.describe 'flights_controller_swagger', type: :request do
                  code_share: { type: :string, example: 'W13' },
                  stops: { type: :integer, example: 0 },
                  equipment: { type: :string, example: 'Q1' },
-                 provider_name: { type: :string, example: 'booking' },
+                 # provider_name: { type: :string, example: 'booking' },
                  created_at: { type: :date, example: '2021-07-12T22:26:08.828Z' },
                  updated_at: { type: :date, example: '2021-07-12T22:26:08.828Z' }
                },
-               required: %w[airline source_airport destination_airport stops equipment provider]
+               required: %w[airline source_airport destination_airport stops equipment]
 
         run_test!
       end
