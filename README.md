@@ -17,15 +17,18 @@ Things you may want to cover:
 
 * How to run the test suite
 
-`rspec`
+`bundle exec rspec`
 
 * Services (job queues, cache servers, search engines, etc.)
 
 * Deployment instructions
+
   
   `heroku container:push web`
   
   `heroku container:release web`
+
+  `heroku run rake db:migrate`
 
 * ...
 

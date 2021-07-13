@@ -14,6 +14,19 @@ paths:
       - application/json
       consumes:
       - application/json
+      parameters:
+      - name: page
+        in: query
+        type: integer
+        example: 1
+        required: false
+        description: Page number
+      - name: from
+        in: query
+        type: string
+        example: JFK
+        required: false
+        description: Destination airport
       responses:
         '200':
           description: Success
@@ -62,18 +75,19 @@ paths:
                   - destination_airport
                   - stops
                   - equipment
-                  - provider
+                  - provider_name
               meta:
                 type: object
                 properties:
-                  total_pages:
+                  total_entries:
                     type: integer
                     example: 1
     post:
       summary: Create a new flight
       tags:
       - Flights
-      description: Create a new flight
+      description: Create a new flight (example. API. it should be as sub resource
+        for provider)
       produces:
       - application/json
       consumes:
@@ -139,9 +153,6 @@ paths:
               equipment:
                 type: string
                 example: Q1
-              provider_name:
-                type: string
-                example: booking
               created_at:
                 type: date
                 example: '2021-07-12T22:26:08.828Z'
@@ -154,6 +165,5 @@ paths:
             - destination_airport
             - stops
             - equipment
-            - provider
         '422':
           description: invalid request

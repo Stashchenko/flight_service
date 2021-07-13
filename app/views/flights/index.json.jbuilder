@@ -4,5 +4,8 @@ json.data do
     json.provider_name comment.provider.name
   end
 end
+json.meta do
+  json.total_entries @flights.total_entries
+end
 
 

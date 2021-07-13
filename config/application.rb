@@ -39,5 +39,8 @@ module FlightService
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
     config.hosts = nil
+    config.autoload_paths << 'lib'
+    config.autoload_paths += ["#{config.root}/app/queries/"]
+
   end
 end

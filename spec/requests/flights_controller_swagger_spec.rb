@@ -16,6 +16,19 @@ RSpec.describe 'flights_controller_swagger', type: :request do
       produces 'application/json'
       consumes 'application/json'
 
+      parameter name: :page,
+                in: :query,
+                type: :integer,
+                example: 1,
+                required: false,
+                description: 'Page number'
+      parameter name: :from,
+                in: :query,
+                type: :string,
+                example: 'JFK',
+                required: false,
+                description: 'Destination airport'
+
       response '200', 'Success' do
         schema type: :object,
                properties: {
@@ -37,13 +50,13 @@ RSpec.describe 'flights_controller_swagger', type: :request do
                          created_at: { type: :date, example: '2021-07-12T22:26:08.828Z' },
                          updated_at: { type: :date, example: '2021-07-12T22:26:08.828Z' }
                        },
-                     required: %w[airline source_airport destination_airport stops equipment provider]
+                     required: %w[airline source_airport destination_airport stops equipment provider_name]
                    }
                  },
                  meta: {
                    type: :object,
                    properties: {
-                     total_pages: { type: :integer, example: 1 }
+                     total_entries: { type: :integer, example: 1 }
                    }
                  }
                }
@@ -53,7 +66,7 @@ RSpec.describe 'flights_controller_swagger', type: :request do
 
     post('Create a new flight') do
       tags 'Flights'
-      description 'Create a new flight'
+      description 'Create a new flight (example. API. it should be as sub resource for provider)'
       produces 'application/json'
       consumes 'application/json'
 
@@ -86,7 +99,6 @@ RSpec.describe 'flights_controller_swagger', type: :request do
                  code_share: { type: :string, example: 'W13' },
                  stops: { type: :integer, example: 0 },
                  equipment: { type: :string, example: 'Q1' },
-                 # provider_name: { type: :string, example: 'booking' },
                  created_at: { type: :date, example: '2021-07-12T22:26:08.828Z' },
                  updated_at: { type: :date, example: '2021-07-12T22:26:08.828Z' }
                },

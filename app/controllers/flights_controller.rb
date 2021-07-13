@@ -5,7 +5,7 @@ class FlightsController < ApplicationController
 
   # GET /flights
   def index
-    @flights = Flight.all.includes(:provider)
+    @flights = FlightQuery.new(params: params).call
   end
 
   # GET /flights/1
